@@ -8,12 +8,6 @@ url = "https://www.onelifefitness.com/gyms/atlanta-holly-springs?hsLang=en"
 page = requests.get(url)
 
 #using the lxml parser to process the webpage text content
-soup = BeautifulSoup(page.content,'html.parser')
+soup = BeautifulSoup(page.text,'html.parser')
 
-lists = soup.find_all('section', id="schedule")
-
-#make a loop to find the class_name of each section
-for list in lists:
-    class_name = list.find('img', alt="Les Mills BODYPUMP™")
-    info = [class_name]
-    print(info)
+print(soup.prettify())
